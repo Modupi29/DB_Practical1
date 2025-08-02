@@ -4,6 +4,7 @@
 // DB_Practical 1
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
@@ -61,26 +62,19 @@ public class Main {
 
             //  Question b: Top 5 cities by population 
             ArrayList<String[]> cityList = new ArrayList<>();
-            int temp1 = 0; // Temporary variable to track duplicates
-            boolean duplicatePop = true; // Flag to track duplicates
+            ArrayList<String> seenCities = new ArrayList<>();
             for (String[] entry : data) {
                 try {
-                    if (temp1 == Integer.parseInt(entry[1])) {
-                        duplicatePop = true; // If the population is the same as the last one, skip it
-                    } else {
-                        duplicatePop = false; // Reset duplicate flag if a new population is found
-                    }
-
-                    if (duplicatePop) {
-                        duplicatePop = false;
-                        continue;
+                    
+                    if (seenCities.contains(entry[0].trim())) {
+                        continue; // Skip if the city has already been processed
                     }
 
                     String city = entry[0];
                     int pop = Integer.parseInt(entry[1]);
                     cityList.add(new String[]{city, String.valueOf(pop)});
-                    temp1 = pop; // Update temp1 to the current population
-                    duplicatePop = true; // Reset for the next iteration
+                    seenCities.add(city); // Mark this city as seen
+                    
                 } catch (Exception ignored) {}
             }
             cityList.sort((a, b) -> Integer.parseInt(b[1]) - Integer.parseInt(a[1]));

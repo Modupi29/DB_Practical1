@@ -4,10 +4,10 @@ Number of countries ending with 'a': 82
 Question b:
 Top 5 cities by population:
 Mumbai (Bombay) - 10500000
-Mumbai (Bombay) - 10500000
-Mumbai (Bombay) - 10500000
-Mumbai (Bombay) - 10500000
-Mumbai (Bombay) - 10500000
+Seoul - 9981619
+São Paulo - 9968485
+Shanghai - 9696300
+Jakarta - 9604900
 
 Question h:
  Unique country names ending with 'a':
