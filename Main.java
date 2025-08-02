@@ -25,7 +25,6 @@ public class Main {
                     continue;
                 }
                 String[] parts = line.split(",", -1);
-                if (parts.length < 15) continue;
                 data.add(parts);
             }
             br.close();
