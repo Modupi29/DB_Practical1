@@ -21,9 +21,9 @@ Question f:
 Top 5 American countries with the highest life expectancy:
 Montserrat - 78
 Guadeloupe - 77
-Guadeloupe - 77
-Guadeloupe - 77
-Guadeloupe - 77
+Barbados - 73
+Peru - 70
+Trinidad and Tobago - 68
 
 Question h:
  Unique country names ending with 'a':

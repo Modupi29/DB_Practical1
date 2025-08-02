@@ -121,12 +121,18 @@ public class Main {
             //Question f: Top 5 American countries with the highest life expectancy 
             bw.write("Question f:\nTop 5 American countries with the highest life expectancy:\n");
             ArrayList<String[]> americanCountries = new ArrayList<String[]>();
+            ArrayList<String> seenAmericanCountries = new ArrayList<>();
             String continent = "";
             String country2 = "";
             int lifeExpectancy = 0;
             for (String[] entry : data) {
                 country2 = entry[2].trim();
                 continent = entry[3].trim();
+
+                if (seenAmericanCountries.contains(country2)) {
+                    continue; // Skip if the country has already been processed
+                }
+
                 if (continent.equals("North America") || continent.equals("South America")) {
                     try {
                         lifeExpectancy = Integer.parseInt(entry[8]);
@@ -137,6 +143,7 @@ public class Main {
                     americanCountries.add(new String[]{country2, String.valueOf(lifeExpectancy)});
 
                 }
+                seenAmericanCountries.add(country2); // Mark this country as seen
             }
             americanCountries.sort((a, b) -> Integer.parseInt(b[1]) - Integer.parseInt(a[1]));
             for (int i = 0; i < 5; i++) {
