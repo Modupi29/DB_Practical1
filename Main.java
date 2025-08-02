@@ -33,11 +33,27 @@ public class Main {
 
             //  Question a: Countries ending with 'a' 
             int countEndsWithA = 0;
+            boolean duplicate = true;
+            String temp = "";
             for (String[] entry : data) {
+               
+                if( temp.equals(entry[2].trim())) {
+                    duplicate = true; // If the country is the same as the last one, skip it
+                } else {
+                    duplicate = false; // Reset duplicate flag if a new country is found
+                }
+
+                if (duplicate) {
+                    duplicate = false;
+                    continue;
+                }
+
                 String country = entry[2].trim();
                 if (country.charAt(country.length() - 1) == 'a') {
                     countEndsWithA++;
                 }
+                temp = country;
+                duplicate = true; // Reset for the next iteration
             }
             bw.write("Question a:\n");
             bw.write("Number of countries ending with 'a': " + countEndsWithA + "\n\n");
@@ -63,11 +79,27 @@ public class Main {
 
             //  Question h: Unique country names ending with 'a' 
             bw.write("Question h:\n Unique country names ending with 'a':\n");
+            String temp2 ="";
+            boolean unique = true; // Flag to track duplicates
             for (String[] entry : data) {
+
+                if( temp2.equals(entry[2].trim())) {
+                    unique = true; // If the country is the same as the last one, skip it
+                } else {
+                    unique = false; // Reset duplicate flag if a new country is found
+                }
+
+                if (unique) {
+                    unique = false;
+                    continue;
+                }
+
                 String country = entry[2].trim();
                 if (country.charAt(country.length() - 1) == 'a') {
                 bw.write(country + "\n");
                 }
+                temp2 = country;
+                unique = true; // Reset for the next iteration
             }
             bw.write("\n");
             bw.close();
