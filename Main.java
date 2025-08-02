@@ -61,7 +61,7 @@ public class Main {
             bw.write("\n");
 
 
-            // --- Question h: Unique country names ending with 'a' ---
+            //  Question h: Unique country names ending with 'a' 
             bw.write("Question h:\n Unique country names ending with 'a':\n");
             for (String[] entry : data) {
                 String country = entry[2].trim();
