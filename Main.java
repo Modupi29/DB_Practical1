@@ -4,6 +4,7 @@
 // DB_Practical 1
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Main {
@@ -83,6 +84,31 @@ public class Main {
                 bw.write(cityList.get(i)[0] + " - " + cityList.get(i)[1] + "\n");
             }
             bw.write("\n");
+
+         /*   //Question c: Listing five countries by the largest land mass
+            bw.write("Question c:\nFive countries by the largest land mass:\n");
+            int landMass = 0;
+            String country1 = "";
+            ArrayList<String[]> countryList = new ArrayList<>();
+            ArrayList<String> seenCountries = new ArrayList<>();
+            for (String[] entry : data) {
+
+                if (seenCountries.contains(entry[2])) {
+                    continue; // Skip if the country has already been processed
+                }
+                
+                country1 = entry[2];
+                landMass = Integer.parseInt(entry[5]);
+                countryList.add(new String[]{country1, String.valueOf(landMass)});
+
+                seenCountries.add(country1); // Mark this country as seen
+
+               
+            }
+            countryList.sort((a, b) -> Integer.parseInt(b[1]) - Integer.parseInt(a[1]));
+            for (int i = 0; i < 5; i++) {
+                bw.write(countryList.get(i)[0] + " - " + countryList.get(i)[1] + "\n");
+            } */
 
 
             //  Question h: Unique country names ending with 'a' 
