@@ -55,7 +55,7 @@ public class Main {
             cityList.sort((a, b) -> Integer.parseInt(b[1]) - Integer.parseInt(a[1]));
 
             bw.write("Question b:\nTop 5 cities by population:\n");
-            for (int i = 0; i < Math.min(5, cityList.size()); i++) {
+            for (int i = 0; i < 5; i++) {
                 bw.write(cityList.get(i)[0] + " - " + cityList.get(i)[1] + "\n");
             }
             bw.write("\n");
