@@ -17,6 +17,14 @@ China - 9572900
 United States - 9363520
 Brazil - 8547403
 
+Question f:
+Top 5 American countries with the highest life expectancy:
+Montserrat - 78
+Guadeloupe - 77
+Guadeloupe - 77
+Guadeloupe - 77
+Guadeloupe - 77
+
 Question h:
  Unique country names ending with 'a':
 Aruba

@@ -118,6 +118,31 @@ public class Main {
             } 
             bw.write("\n");
 
+            //Question f: Top 5 American countries with the highest life expectancy 
+            bw.write("Question f:\nTop 5 American countries with the highest life expectancy:\n");
+            ArrayList<String[]> americanCountries = new ArrayList<String[]>();
+            String continent = "";
+            String country2 = "";
+            int lifeExpectancy = 0;
+            for (String[] entry : data) {
+                country2 = entry[2].trim();
+                continent = entry[3].trim();
+                if (continent.equals("North America") || continent.equals("South America")) {
+                    try {
+                        lifeExpectancy = Integer.parseInt(entry[8]);
+                    } catch (NumberFormatException e) {
+                        // Skip if life expectancy is not a valid number
+                        lifeExpectancy = 0; // Default to 0 if parsing fails
+                    }
+                    americanCountries.add(new String[]{country2, String.valueOf(lifeExpectancy)});
+
+                }
+            }
+            americanCountries.sort((a, b) -> Integer.parseInt(b[1]) - Integer.parseInt(a[1]));
+            for (int i = 0; i < 5; i++) {
+                bw.write(americanCountries.get(i)[0] + " - " + americanCountries.get(i)[1] + "\n");
+            } 
+            bw.write("\n");
 
             //  Question h: Unique country names ending with 'a' 
             bw.write("Question h:\n Unique country names ending with 'a':\n");
