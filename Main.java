@@ -1,0 +1,81 @@
+// Team Name: DataSquad
+// Student Numbers: 3711511, 3805949, 3800363
+// File Name: Main.java
+// DB_Practical 1
+
+import java.io.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        String inputFile = "file.txt";      // Input file with data
+        String outputFile = "file2.txt";    // Output file to save results
+        ArrayList<String[]> data = new ArrayList<String[]>();
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(inputFile));
+            String line;
+            boolean firstLine = true;
+
+            // Read and store data (skip header)
+            while ((line = br.readLine()) != null) {
+                if (firstLine) {
+                    firstLine = false;
+                    continue;
+                }
+                String[] parts = line.split(",", -1);
+                if (parts.length < 15) continue;
+                data.add(parts);
+            }
+            br.close();
+
+            BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile));
+
+            //  Question a: Countries ending with 'a' 
+            int countEndsWithA = 0;
+            for (String[] entry : data) {
+                String country = entry[2].trim();
+                if (country.charAt(country.length() - 1) == 'a') {
+                    countEndsWithA++;
+                }
+            }
+            bw.write("Question a:\n");
+            bw.write("Number of countries ending with 'a': " + countEndsWithA + "\n\n");
+
+
+            //  Question b: Top 5 cities by population 
+            ArrayList<String[]> cityList = new ArrayList<>();
+            for (String[] entry : data) {
+                try {
+                    String city = entry[0];
+                    int pop = Integer.parseInt(entry[1]);
+                    cityList.add(new String[]{city, String.valueOf(pop)});
+                } catch (Exception ignored) {}
+            }
+            cityList.sort((a, b) -> Integer.parseInt(b[1]) - Integer.parseInt(a[1]));
+
+            bw.write("Question b:\nTop 5 cities by population:\n");
+            for (int i = 0; i < Math.min(5, cityList.size()); i++) {
+                bw.write(cityList.get(i)[0] + " - " + cityList.get(i)[1] + "\n");
+            }
+            bw.write("\n");
+
+
+            // --- Question h: Unique country names ending with 'a' ---
+            bw.write("Question h:\n Unique country names ending with 'a':\n");
+            for (String[] entry : data) {
+                String country = entry[2].trim();
+                if (country.charAt(country.length() - 1) == 'a') {
+                bw.write(country + "\n");
+                }
+            }
+            bw.write("\n");
+            bw.close();
+
+            
+            System.out.println("All questions completed. Results saved to file2.txt.");
+        } catch (IOException e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
+}
