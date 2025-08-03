@@ -6,15 +6,25 @@
 import java.io.*;
 import java.lang.reflect.Array;
 import java.util.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) {
-        String inputFile = "file.txt";      // Input file with data
+
+        String inputFile = "file.txt";    // Input file with data
+        String absPathInput = Paths.get(inputFile).toAbsolutePath().toString();
+
+
         String outputFile = "file2.txt";    // Output file to save results
+        String absPathOutput = Paths.get(outputFile).toAbsolutePath().toString();
+
+
         ArrayList<String[]> data = new ArrayList<String[]>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader(inputFile));
+            BufferedReader br = new BufferedReader(new FileReader(absPathInput));
             String line;
             boolean firstLine = true;
 
@@ -29,7 +39,7 @@ public class Main {
             }
             br.close();
 
-            BufferedWriter bw = new BufferedWriter(new FileWriter(outputFile));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(absPathOutput));
 
             //  Question a: Countries ending with 'a' 
             int countEndsWithA = 0;
@@ -179,6 +189,10 @@ public class Main {
 
             
             System.out.println("All questions completed. Results saved to file2.txt.");
+            System.out.println("Absolute path of input file: " + absPathInput);
+            System.out.println("Absolute path of output file: " + absPathOutput);
+
+
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
