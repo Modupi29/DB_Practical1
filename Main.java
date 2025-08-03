@@ -127,6 +127,54 @@ public class Main {
             } 
             bw.write("\n");
 
+            
+            //Question d: How many countries gained independence between the years 1960 and 1980 (inclusive)
+            bw.write("Question d) How many countries gained independence between the years 1960 and 1980 (inclusive):\n");
+            
+            ArrayList<String> independentCountries = new ArrayList<>();
+            for (String[] entry : data){
+                 try{
+                    String country = entry[2].trim();
+                    int year = Integer.parseInt(entry[6].trim());//Independece year
+                    
+                    //Check if year is in range and not already in the list
+                    if(year >= 1960 && year <= 1980){
+                        if(!independentCountries.contains(country)){
+                            independentCountries.add(country);
+                        }
+                    }
+                }catch (NumberFormatException e) {
+                    // Skip entries with invalid year
+                }
+            }
+
+            bw.write("Number of countries: " + independentCountries.size() + "\n\n");
+            
+            //Question e: Which countries gained independence between the years 1830 and 1850 (inclusive)
+            bw.write("Question e) Which countries gained independence between the years 1830 and 1850 (inclusive):\n");
+            ArrayList<String> independentCountries2 = new ArrayList<>();
+            for (String[] entry : data){
+                 try{
+                    String country = entry[2].trim();
+                    int year = Integer.parseInt(entry[6].trim());
+
+                    //Check if year is in range and not already in the list
+                    if(year >= 1830 && year <= 1850){
+                        if(!independentCountries2.contains(country)){
+                            independentCountries2.add(country);
+                        }
+                    }
+                }catch (NumberFormatException e) {
+                    // Skip entries with invalid year
+                }
+            }
+            //Write the countries
+            for (String country : independentCountries2){
+                bw.write(country + "\n");
+            }
+
+            bw.write("\n");
+            
             //Question f: Top 5 American countries with the highest life expectancy 
             bw.write("Question f:\nTop 5 American countries with the highest life expectancy:\n");
             ArrayList<String[]> americanCountries = new ArrayList<String[]>();
