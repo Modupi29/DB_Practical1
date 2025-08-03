@@ -187,10 +187,12 @@ public class Main {
             bw.write("\n");
             bw.close();
 
-            
+            // Print confirmation message to the console
             System.out.println("All questions completed. Results saved to file2.txt.");
-            System.out.println("Absolute path of input file: " + absPathInput);
-            System.out.println("Absolute path of output file: " + absPathOutput);
+
+            // Print absolute paths of input and output files for testing purposes 
+            System.out.println("Absolute path of input file (file.txt): " + absPathInput);
+            System.out.println("Absolute path of output file (file2.txt): " + absPathOutput);
 
 
         } catch (IOException e) {
