@@ -161,7 +161,7 @@ public class Main {
             bw.write("\n");
 
             //  Question h: Unique country names ending with 'a' 
-            bw.write("Question h:\n Unique country names ending with 'a':\n");
+            bw.write("Question h:\nUnique country names ending with 'a':\n");
             String temp2 ="";
             boolean unique = true; // Flag to track duplicates
             for (String[] entry : data) {
